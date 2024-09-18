@@ -1,0 +1,41 @@
+@use './mixins.scss' as *;
+@use './variables.scss' as *;
+@use './typography.scss' as *;
+
+body{
+    margin: 0 $MOBILE-MARGIN;
+    font-family: 'PlayfairDisplay' Helvetica;
+    color: $BODY-TXT;
+
+    @include tablet{
+        margin: 0 $TABLET-MARGIN;
+    }
+
+    @include desktop{
+        margin: 0 $DESKTOP-MARGIN;
+    }
+}
+
+p{
+    font-size: .875rem;
+    line-height: 1.5;
+    @include tablet{
+        font-size: 1rem;
+    }
+}
+
+h1{
+    font-size: 1.75rem;
+    line-height: 1.2;
+    @include tablet{
+        font-size: 2rem;
+    }
+}
+
+h2{
+    font-size: 1.25rem;
+    line-height: 1.2;
+    @include tablet{
+        font-size: 1.5rem;
+    }
+}
