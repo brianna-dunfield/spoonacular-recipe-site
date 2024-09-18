@@ -2,10 +2,15 @@
 @use './variables.scss' as *;
 @use './typography.scss' as *;
 
+*{
+    font-family: 'PlayfairDisplay', Helvetica;
+}
+
 body{
     margin: 0 $MOBILE-MARGIN;
-    font-family: 'PlayfairDisplay' Helvetica;
+    
     color: $BODY-TXT;
+    background-color: $PRIMARY-BG;
 
     @include tablet{
         margin: 0 $TABLET-MARGIN;
