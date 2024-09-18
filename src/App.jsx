@@ -6,7 +6,7 @@ import Home from './pages/Home/Home.jsx';
 import Footer from './components/Footer/Footer.jsx';
 
 function App() {
-	const [searchInput, setSearchInput] = useState('');
+	const [searchInput, setSearchInput] = useState('chicken');
 
 	return (
 		<>
@@ -15,7 +15,7 @@ function App() {
 				<Routes>
 					<Route
 						path='/'
-						element={<Home />}
+						element={<Home searchInput={searchInput}/>}
 					/>
 				</Routes>
 				<Footer />
