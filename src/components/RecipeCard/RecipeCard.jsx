@@ -14,7 +14,7 @@ export default function RecipeCard({
 				alt={`Image of ${recipeName}`}
 				className='recipe-card__img'
 			/>
-			<h2>{recipeName}</h2>
+			<h2 className='recipe-card__title'>{recipeName}</h2>
 			<div className='recipe-card__details'>
 				<label>Cuisines</label>
 				<p>{recipeCuisines}</p>
