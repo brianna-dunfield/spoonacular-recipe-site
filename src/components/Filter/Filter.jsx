@@ -35,18 +35,20 @@ export default function Filter({ setFilterSideBar, setSelectedCuisine }) {
 		setFilterSideBar(false);
 	};
 
-    const handleFilterBtnClick = (event)=>{
-        event.preventDefault();
-        setFilterSideBar(false);
-        const selectedCuisines = [];
-        const checkboxes = document.querySelectorAll('.filter__form input[type="checkbox"]');
-        checkboxes.forEach((checkbox) => {
-            if (checkbox.checked) {
-                selectedCuisines.push(checkbox.value);
-            }
-        });
-        setSelectedCuisine(selectedCuisines); 
-    }
+	const handleFilterBtnClick = (event) => {
+		event.preventDefault();
+		setFilterSideBar(false);
+		const selectedCuisines = [];
+		const checkboxes = document.querySelectorAll(
+			'.filter__form input[type="checkbox"]'
+		);
+		checkboxes.forEach((checkbox) => {
+			if (checkbox.checked) {
+				selectedCuisines.push(checkbox.value);
+			}
+		});
+		setSelectedCuisine(selectedCuisines);
+	};
 
 	return (
 		<aside className='filter'>
@@ -57,7 +59,7 @@ export default function Filter({ setFilterSideBar, setSelectedCuisine }) {
 				X
 			</button>
 			<h2 className='filter__title'> Filter </h2>
-            <p>Select a cuisine:</p>
+			<p>Select a cuisine:</p>
 			<form className='filter__form'>
 				{cuisineOptions.map((cuisine, index) => {
 					return (
@@ -72,7 +74,13 @@ export default function Filter({ setFilterSideBar, setSelectedCuisine }) {
 						</div>
 					);
 				})}
-                <button type='submit' onClick={handleFilterBtnClick}>FILTER</button>
+				<button
+					type='submit'
+					onClick={handleFilterBtnClick}
+                    className='filter__form-submit'
+				>
+					FILTER
+				</button>
 			</form>
 		</aside>
 	);
