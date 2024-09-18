@@ -1,11 +1,12 @@
 import './NavBar.scss';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { FaLessThanEqual } from 'react-icons/fa';
 
-export default function NavBar({ setSearchInput }) {
+export default function NavBar({ setSearchInput, setFilterSideBar }) {
 	const [currInput, setCurrInput] = useState('');
 
-	const handleBtnClick = () => {
+	const handleSearchBtnClick = () => {
 		setSearchInput(currInput);
 		setCurrInput('');
 	};
@@ -21,6 +22,9 @@ export default function NavBar({ setSearchInput }) {
 		setCurrInput(event.target.value);
 	};
 
+	const handleFilterBtnClick = () => {
+		setFilterSideBar(true);
+	}
 	return (
 		<nav className='nav'>
 			<Link
@@ -41,11 +45,16 @@ export default function NavBar({ setSearchInput }) {
 				<div className='nav__buttons'>
 					<button
 						className='nav__buttons-search'
-						onClick={handleBtnClick}
+						onClick={handleSearchBtnClick}
 					>
 						Search
 					</button>
-					<button className='nav__buttons-filter'>Filter</button>
+					<button
+						className='nav__buttons-filter'
+						onClick={handleFilterBtnClick}
+					>
+						Filter
+					</button>
 				</div>
 			</div>
 		</nav>

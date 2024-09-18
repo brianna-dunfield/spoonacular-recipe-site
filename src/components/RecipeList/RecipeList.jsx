@@ -10,18 +10,18 @@ export default function RecipeList({ searchInput }) {
 	const [filteredRecipes, setFilteredRecipes] = useState([]);
 	const numPerPage = 5;
 
-	useEffect(() => {
-		const fetchRecipes = async () => {
-			try {
-				const results = await getSearchRequest(searchInput);
-				console.log('Data results', results.data);
-				setRecipeOptions(results.data.results);
-			} catch (error) {
-				console.error(error);
-			}
-		};
-		fetchRecipes();
-	}, [searchInput]);
+	// useEffect(() => {
+	// 	const fetchRecipes = async () => {
+	// 		try {
+	// 			const results = await getSearchRequest(searchInput);
+	// 			console.log('Data results', results.data);
+	// 			setRecipeOptions(results.data.results);
+	// 		} catch (error) {
+	// 			console.error(error);
+	// 		}
+	// 	};
+	// 	fetchRecipes();
+	// }, [searchInput]);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);

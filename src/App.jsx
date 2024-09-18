@@ -4,18 +4,22 @@ import { useState } from 'react';
 import NavBar from './components/NavBar/NavBar.jsx';
 import Home from './pages/Home/Home.jsx';
 import Footer from './components/Footer/Footer.jsx';
+import Filter from './components/Filter/Filter.jsx';
 
 function App() {
 	const [searchInput, setSearchInput] = useState('chicken');
+	const [filterSideBar, setFilterSideBar] = useState(false);
+	const [cuisineSelected, setCuisineSelected] = useState([]);
 
 	return (
 		<>
 			<BrowserRouter>
-				<NavBar setSearchInput={setSearchInput} />
+				<NavBar setSearchInput={setSearchInput} setFilterSideBar={setFilterSideBar}/>
+				{filterSideBar ? <Filter setFilterSideBar={setFilterSideBar} setSelectedCuisine={setCuisineSelected}/> : null}
 				<Routes>
 					<Route
 						path='/'
-						element={<Home searchInput={searchInput}/>}
+						element={<Home searchInput={searchInput} cuisineSelected={cuisineSelected}/>}
 					/>
 				</Routes>
 				<Footer />

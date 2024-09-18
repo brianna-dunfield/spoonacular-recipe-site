@@ -1,0 +1,41 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
+.filter{
+    width: 90%;
+    height: 100vh;
+    background-color: $PRIMARY-BG;
+    padding: 1rem;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    &__close{
+        height: 2rem;;
+        width: 2rem;
+        float: right;
+        font-weight: 700;
+        font-size: 1rem;
+        background-color: $PRIMARY-BG;
+        border: .0625rem solid $BORDERS;
+        border-radius: 50%;
+        text-align: center;
+    }
+    &__title{
+        border-bottom: .0625rem solid $BORDERS;
+        padding: 1rem;
+    }
+    &__form input[type='checkbox']{
+        border: 1px solid $BORDERS;
+        width: 20px;
+        height: 20px;
+        &:hover{
+            border: 10px solid $ACCENT-TWO;
+        }
+    }
+    &__form>div{
+        padding: 0.25rem;
+        display: flex;
+        align-items: center;
+    }
+}
