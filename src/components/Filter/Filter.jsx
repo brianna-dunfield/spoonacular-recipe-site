@@ -36,6 +36,8 @@ export default function Filter({ setFilterSideBar, setSelectedCuisine }) {
 	};
 
     const handleFilterBtnClick = (event)=>{
+        event.preventDefault();
+        setFilterSideBar(false);
         const selectedCuisines = [];
         const checkboxes = document.querySelectorAll('.filter__form input[type="checkbox"]');
         checkboxes.forEach((checkbox) => {

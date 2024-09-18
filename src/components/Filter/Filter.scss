@@ -3,7 +3,7 @@
 
 .filter{
     width: 90%;
-    height: 100vh;
+    height: fit-content;
     background-color: $PRIMARY-BG;
     padding: 1rem;
     position: absolute;
@@ -26,11 +26,11 @@
         padding: 1rem;
     }
     &__form input[type='checkbox']{
-        border: 1px solid $BORDERS;
-        width: 20px;
-        height: 20px;
+        border: .0625rem solid $BORDERS;
+        width: 1.25rem;
+        height: 1.25rem;
         &:hover{
-            border: 10px solid $ACCENT-TWO;
+            border: .625rem solid $ACCENT-TWO;
         }
     }
     &__form>div{

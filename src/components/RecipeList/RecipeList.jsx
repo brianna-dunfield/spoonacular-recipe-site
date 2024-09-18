@@ -4,24 +4,23 @@ import { useEffect, useState } from 'react';
 import { getSearchRequest } from '../../utils/api';
 import ReactPaginate from 'react-paginate';
 
-export default function RecipeList({ searchInput }) {
+export default function RecipeList({ searchInput, cuisineSelected }) {
 	const [recipeOptions, setRecipeOptions] = useState([]);
 	const [page, setPage] = useState(0);
 	const [filteredRecipes, setFilteredRecipes] = useState([]);
 	const numPerPage = 5;
 
-	// useEffect(() => {
-	// 	const fetchRecipes = async () => {
-	// 		try {
-	// 			const results = await getSearchRequest(searchInput);
-	// 			console.log('Data results', results.data);
-	// 			setRecipeOptions(results.data.results);
-	// 		} catch (error) {
-	// 			console.error(error);
-	// 		}
-	// 	};
-	// 	fetchRecipes();
-	// }, [searchInput]);
+	useEffect(() => {
+		const fetchRecipes = async () => {
+			try {
+				const results = await getSearchRequest(searchInput, cuisineSelected);
+				setRecipeOptions(results.data.results);
+			} catch (error) {
+				console.error(error);
+			}
+		};
+		fetchRecipes();
+	}, [searchInput, cuisineSelected]);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -36,7 +35,6 @@ export default function RecipeList({ searchInput }) {
 	}, [page, recipeOptions]);
 
 	function formatCuisines(cuisinesArr) {
-		console.log(cuisinesArr);
 		return cuisinesArr.join(', ');
 	}
 	return (
