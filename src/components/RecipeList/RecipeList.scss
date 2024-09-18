@@ -1,9 +1,33 @@
-.recipes-list{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    flex-direction: row;
-    flex-wrap: wrap;
+@use '../../styles/partials/variables.scss' as *;
+
+.recipes-list {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.pagination {
+	display: flex;
+	gap: 1rem;
+	list-style: none;
+	justify-content: center;
+	padding: 0;
+	font-size: 1.5rem;
+	& > *:hover {
+		color: $ACCENT-TWO;
+	}
+	&__number {
+		width: 40px;
+		height: 40px;
+		text-align: center;
+
+		&--active {
+			background-color: $ACCENT-TWO;
+			border-radius: 50%;
+			color: $PRIMARY-BG;
+		}
+	}
 }

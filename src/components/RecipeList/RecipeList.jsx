@@ -24,9 +24,13 @@ export default function RecipeList({ searchInput }) {
 	}, [searchInput]);
 
 	useEffect(() => {
+		window.scrollTo(0, 0);
 		setFilteredRecipes(
 			recipeOptions.filter((item, index) => {
-				return (index >= page * numPerPage) & (index < (page + 1) * numPerPage);
+				return (
+					(index >= page * numPerPage) &
+					(index < (page + 1) * numPerPage)
+				);
 			})
 		);
 	}, [page, recipeOptions]);
@@ -36,23 +40,29 @@ export default function RecipeList({ searchInput }) {
 		return cuisinesArr.join(', ');
 	}
 	return (
-		<section className='recipes-list'>
-			{filteredRecipes.map((recipe, index) => {
-				return (
-					<RecipeCard
-						key={index}
-						recipeName={recipe.title}
-						recipeCuisines={formatCuisines(recipe.cuisines)}
-						recipeImg={recipe.image}
-						recipeServings={recipe.servings}
-						recipeTime={recipe.readyInMinutes}
-					/>
-				);
-			})}
+		<section>
+			<div className='recipes-list'>
+				{filteredRecipes.map((recipe, index) => {
+					return (
+						<RecipeCard
+							key={index}
+							recipeName={recipe.title}
+							recipeCuisines={formatCuisines(recipe.cuisines)}
+							recipeImg={recipe.image}
+							recipeServings={recipe.servings}
+							recipeTime={recipe.readyInMinutes}
+						/>
+					);
+				})}
+			</div>
+
 			<ReactPaginate
+				containerClassName='pagination'
+				pageClassName='pagination__number'
+				activeClassName='pagination__number--active'
 				onPageChange={(event) => setPage(event.selected)}
 				pageCount={Math.ceil(recipeOptions.length / numPerPage)}
-				breakLabel="..."
+				breakLabel='...'
 			/>
 		</section>
 	);

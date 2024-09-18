@@ -5,5 +5,5 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 
 export const getSearchRequest = (searchInput) => {
     console.log(`${API_URL_SEARCH}?apiKey=${API_KEY}&query=${searchInput}&addRecipeInformation=true`);
-    return axios.get(`${API_URL_SEARCH}?apiKey=${API_KEY}&query=${searchInput}&addRecipeInformation=true`);
+    return axios.get(`${API_URL_SEARCH}?apiKey=${API_KEY}&query=${searchInput}&addRecipeInformation=true&number=100`);
 }
