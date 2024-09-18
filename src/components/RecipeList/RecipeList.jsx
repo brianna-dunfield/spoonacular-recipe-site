@@ -31,14 +31,16 @@ export default function RecipeList({ searchInput }) {
 	return (
 		<section className='recipes-list'>
 			{recipeOptions.map((recipe, index) => {
-				const key = index;
-				return <RecipeCard
-					recipeName={recipe.title}
-					recipeCuisines={formatCuisines(recipe.cuisines)}
-					recipeImg={recipe.image}
-					recipeServings={recipe.servings}
-					recipeTime={recipe.readyInMinutes}
-				/>;
+				return (
+					<RecipeCard
+						key={index}
+						recipeName={recipe.title}
+						recipeCuisines={formatCuisines(recipe.cuisines)}
+						recipeImg={recipe.image}
+						recipeServings={recipe.servings}
+						recipeTime={recipe.readyInMinutes}
+					/>
+				);
 			})}
 		</section>
 	);

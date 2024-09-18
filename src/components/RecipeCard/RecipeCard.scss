@@ -2,15 +2,13 @@
 @use '../../styles/partials/mixins.scss' as *;
 
 .recipe-card {
-	width: 250px;
-	height: fit-content;
+	width: 200px;
+	height: 380px;
 	background-color: $ACCENT-THREE;
 	border-radius: 1.25rem;
 	padding: 1rem;
 	display: flex;
-	justify-content: center;
 	flex-direction: column;
-	margin-right: 1rem;
 
 	&:hover {
 		background-color: $ACCENT-TWO;
@@ -21,7 +19,7 @@
 
 	&__img {
 		border-radius: 1.25rem;
-		height: 12.5rem;
+		height: 10rem;
 		object-fit: content;
 	}
 	&__details {
@@ -33,6 +31,14 @@
 			width: 50%;
 			text-align: right;
 			font-size: 1rem;
+		}
+	}
+
+	&__title{
+		min-height: 3.6rem;
+		margin-bottom: 0.5rem;
+		@include tablet{
+			min-height: 4.375rem;
 		}
 	}
 }
