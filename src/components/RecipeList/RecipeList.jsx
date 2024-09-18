@@ -2,14 +2,13 @@ import './RecipeList.scss';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import { useEffect, useState } from 'react';
 import { getSearchRequest } from '../../utils/api';
+import ReactPaginate from 'react-paginate';
 
 export default function RecipeList({ searchInput }) {
 	const [recipeOptions, setRecipeOptions] = useState([]);
-	const name = 'Broccolini Quinoa Pilaf';
-	const cuisines = ['Mediterranean', 'Italian', 'European'];
-	const time = '30';
-	const servings = '2';
-	const img = 'https://img.spoonacular.com/recipes/715769-312x231.jpg';
+	const [page, setPage] = useState(0);
+	const [filteredRecipes, setFilteredRecipes] = useState([]);
+	const numPerPage = 5;
 
 	useEffect(() => {
 		const fetchRecipes = async () => {
@@ -24,24 +23,47 @@ export default function RecipeList({ searchInput }) {
 		fetchRecipes();
 	}, [searchInput]);
 
+	useEffect(() => {
+		window.scrollTo(0, 0);
+		setFilteredRecipes(
+			recipeOptions.filter((item, index) => {
+				return (
+					(index >= page * numPerPage) &
+					(index < (page + 1) * numPerPage)
+				);
+			})
+		);
+	}, [page, recipeOptions]);
+
 	function formatCuisines(cuisinesArr) {
 		console.log(cuisinesArr);
 		return cuisinesArr.join(', ');
 	}
 	return (
-		<section className='recipes-list'>
-			{recipeOptions.map((recipe, index) => {
-				return (
-					<RecipeCard
-						key={index}
-						recipeName={recipe.title}
-						recipeCuisines={formatCuisines(recipe.cuisines)}
-						recipeImg={recipe.image}
-						recipeServings={recipe.servings}
-						recipeTime={recipe.readyInMinutes}
-					/>
-				);
-			})}
+		<section>
+			<div className='recipes-list'>
+				{filteredRecipes.map((recipe, index) => {
+					return (
+						<RecipeCard
+							key={index}
+							recipeName={recipe.title}
+							recipeCuisines={formatCuisines(recipe.cuisines)}
+							recipeImg={recipe.image}
+							recipeServings={recipe.servings}
+							recipeTime={recipe.readyInMinutes}
+						/>
+					);
+				})}
+			</div>
+
+			<ReactPaginate
+				containerClassName='pagination'
+				pageClassName='pagination__number'
+				activeClassName='pagination__number--active'
+				onPageChange={(event) => setPage(event.selected)}
+				pageCount={Math.ceil(recipeOptions.length / numPerPage)}
+				breakLabel='...'
+			/>
 		</section>
 	);
 }
