@@ -16,6 +16,9 @@
         height: 4.6875rem;
         margin: 0 (-($TABLET-MARGIN));
         padding: 0 $TABLET-MARGIN;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0;
     }
     @include desktop{
         margin: 0 (-($DESKTOP-MARGIN));
@@ -26,6 +29,9 @@
         text-decoration: none;
         color: $ACCENT-TWO;
         font-size: 28px;
+        @include tablet{
+            width: 300px;
+        }
     }
 
     &__search{
@@ -34,12 +40,19 @@
         gap: 0.5rem;
         align-items: center;
         width: 100%;
+        @include tablet{
+            flex-direction: row;
+            justify-content: flex-end;
+        }
         
         &-input{
             padding: 0.5rem;
             border: 1px solid $BORDERS;
             border-radius: 1.25rem;
             width: 75%;
+            @include tablet{
+                width: 200px;
+            }
             &:focus{
                 border-color: $ACCENT-TWO;
             }
@@ -51,6 +64,10 @@
         display: flex;
         justify-content: center;
         gap: 1rem;
+        @include tablet{
+            gap: 0;
+            width: fit-content;
+        }
         &>button{
             margin: 0.5rem;
             width: 37%;
@@ -61,6 +78,9 @@
             color: $ACCENT-TWO;
             background-color: $PRIMARY-BG;
             box-sizing: border-box;
+            @include tablet{
+                width: 100px;
+            }
             &:hover{
                 background-color: $ACCENT-TWO;
                 color: $PRIMARY-BG;
