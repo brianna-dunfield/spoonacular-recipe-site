@@ -1,6 +1,7 @@
 # Recipe Website using Spoonacular API
 
 See deployed site here: https://main--recipe-rover-spoonacular.netlify.app/
+**Requests per day for API are limited, if reload is not happening please return the next day as requests may have been maxed**
 
 **Desgin**
 <br/>Designed from a mobile first approach.
