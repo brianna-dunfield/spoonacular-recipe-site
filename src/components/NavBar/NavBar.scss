@@ -1,0 +1,90 @@
+@use '../../styles/partials/mixins.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/typography.scss' as *;
+
+.nav {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 9.375rem;
+	margin: 0 (-($MOBILE-MARGIN));
+	padding: 0 $MOBILE-MARGIN;
+	gap: 1rem;
+	@include tablet {
+		height: 4.6875rem;
+		margin: 0 (-($TABLET-MARGIN));
+		padding: 0 $TABLET-MARGIN;
+		flex-direction: row;
+		justify-content: space-between;
+		gap: 0;
+	}
+	@include desktop {
+		margin: 0 (-($DESKTOP-MARGIN));
+		padding: 0 $DESKTOP-MARGIN;
+	}
+
+	&__logo {
+		text-decoration: none;
+		color: $ACCENT-TWO;
+		font-size: 28px;
+		@include tablet {
+			width: 300px;
+		}
+	}
+
+	&__search {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		align-items: center;
+		width: 100%;
+		@include tablet {
+			flex-direction: row;
+			justify-content: flex-end;
+		}
+
+		&-input {
+			padding: 0.5rem;
+			border: 1px solid $BORDERS;
+			border-radius: 1.25rem;
+			width: 75%;
+			&:focus {
+				border-color: $ACCENT-TWO;
+			}
+			@include tablet {
+				width: 200px;
+			}
+		}
+	}
+
+	&__buttons {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		@include tablet {
+			gap: 0;
+			width: fit-content;
+		}
+		& > button {
+			margin: 0.5rem;
+			width: 37%;
+			border-radius: 20px;
+			padding: 4px;
+			border: 1px solid $ACCENT-TWO;
+			font-size: 0.875rem;
+			color: $ACCENT-TWO;
+			background-color: $PRIMARY-BG;
+			box-sizing: border-box;
+			@include tablet {
+				width: 100px;
+			}
+			&:hover {
+				background-color: $ACCENT-TWO;
+				color: $PRIMARY-BG;
+			}
+		}
+	}
+}

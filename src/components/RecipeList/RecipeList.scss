@@ -1,0 +1,41 @@
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
+.recipes-list {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.pagination {
+	display: flex;
+	gap: 1rem;
+	list-style: none;
+	justify-content: center;
+	padding: 0;
+	font-size: 1rem;
+    @include tablet{
+        font-size: 1.5rem;
+    }
+	& > *:hover {
+		color: $ACCENT-TWO;
+	}
+	&__number {
+		width: 1.25rem;
+		height: 1.25rem;
+		text-align: center;
+        @include tablet{
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+
+		&--active {
+			background-color: $ACCENT-TWO;
+			border-radius: 50%;
+			color: $PRIMARY-BG;
+		}
+	}
+}
