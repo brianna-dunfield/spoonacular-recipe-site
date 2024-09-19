@@ -1,0 +1,33 @@
+@use '../../styles/partials/mixins.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
+
+.recipe{
+    &__img{
+        width: 100%;
+        padding: 1rem 0;
+    }
+    &__time-servings{
+        display: flex;
+        & p{
+            margin:0;
+            padding: 0 1rem;
+            border-right: 1px solid $BORDERS;
+            border-left: 1px solid $BORDERS;
+        }
+    }
+    &__instruction{
+        display: flex;
+        gap: 1rem;
+
+        &-number{
+            text-align: center;
+            background-color: $ACCENT-TWO;
+            border-radius: 50%;
+            min-width: 25px;
+            max-width: 25px;
+            min-height: 25px;
+            max-height: 25px;
+            color: $PRIMARY-BG;
+        }
+    }
+}

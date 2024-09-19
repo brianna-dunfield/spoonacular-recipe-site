@@ -53,11 +53,10 @@
 			&:focus {
 				border-color: $ACCENT-TWO;
 			}
-            @include tablet {
-                width: 200px;
-            }
+			@include tablet {
+				width: 200px;
+			}
 		}
-		
 	}
 
 	&__buttons {
