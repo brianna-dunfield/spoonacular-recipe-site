@@ -15,6 +15,19 @@
             border-left: 1px solid $BORDERS;
         }
     }
+    &__info{
+        @include tablet{
+            display: flex;
+            margin: 1rem 0;
+            gap: 2rem;
+        }
+    }
+    &__ingredients{
+        @include tablet{
+            margin: 0;
+            width: 30%;
+        }
+    }
     &__instruction{
         display: flex;
         gap: 1rem;
