@@ -1,4 +1,5 @@
 import './Filter.scss';
+import { useNavigate } from 'react-router-dom';
 
 export default function Filter({ setFilterSideBar, setSelectedCuisine }) {
 	const cuisineOptions = [
@@ -30,6 +31,7 @@ export default function Filter({ setFilterSideBar, setSelectedCuisine }) {
 		'Thai',
 		'Vietnamese',
 	];
+	const navigate = useNavigate();
 
 	const handleBtnClick = () => {
 		setFilterSideBar(false);
@@ -48,6 +50,7 @@ export default function Filter({ setFilterSideBar, setSelectedCuisine }) {
 			}
 		});
 		setSelectedCuisine(selectedCuisines);
+		navigate('/');
 	};
 
 	return (
@@ -77,7 +80,7 @@ export default function Filter({ setFilterSideBar, setSelectedCuisine }) {
 				<button
 					type='submit'
 					onClick={handleFilterBtnClick}
-                    className='filter__form-submit'
+					className='filter__form-submit'
 				>
 					FILTER
 				</button>
