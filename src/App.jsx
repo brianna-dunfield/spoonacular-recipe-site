@@ -23,7 +23,7 @@ function App() {
 						element={<Home searchInput={searchInput} cuisineSelected={cuisineSelected}/>}
 					/>
 					<Route
-						path='/recipe'
+						path='/recipe/:id'
 						element={<RecipeDetails/>}
 					/>
 				</Routes>

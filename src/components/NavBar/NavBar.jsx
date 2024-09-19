@@ -1,20 +1,22 @@
 import './NavBar.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { FaLessThanEqual } from 'react-icons/fa';
 
 export default function NavBar({ setSearchInput, setFilterSideBar }) {
 	const [currInput, setCurrInput] = useState('');
+	const navigate = useNavigate();
 
 	const handleSearchBtnClick = () => {
 		setSearchInput(currInput);
 		setCurrInput('');
+		navigate('/');
 	};
 
 	const handleKeyDown = (event) => {
 		if (event.key === 'Enter') {
 			setSearchInput(currInput);
 			setCurrInput('');
+			navigate('/');
 		}
 	};
 
