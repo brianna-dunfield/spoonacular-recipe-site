@@ -14,3 +14,7 @@ export const getSearchRequest = (searchInput, cuisines) => {
     }
     return axios.get(axiosRequestUrl);
 }
+
+// export const getRecipeInfo = (id) => {
+//     return axios.get(`${API_URL_SEARCH}?apiKey=${API_KEY})
+// }

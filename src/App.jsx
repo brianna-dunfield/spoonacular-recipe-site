@@ -5,6 +5,7 @@ import NavBar from './components/NavBar/NavBar.jsx';
 import Home from './pages/Home/Home.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import Filter from './components/Filter/Filter.jsx';
+import RecipeDetails from './pages/RecipeDetails/RecipeDetails.jsx';
 
 function App() {
 	const [searchInput, setSearchInput] = useState('chicken');
@@ -20,6 +21,10 @@ function App() {
 					<Route
 						path='/'
 						element={<Home searchInput={searchInput} cuisineSelected={cuisineSelected}/>}
+					/>
+					<Route
+						path='/recipe'
+						element={<RecipeDetails/>}
 					/>
 				</Routes>
 				<Footer />

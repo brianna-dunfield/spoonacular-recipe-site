@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { getSearchRequest } from '../../utils/api';
 import ReactPaginate from 'react-paginate';
 
-export default function RecipeList({ searchInput, cuisineSelected }) {
+export default function RecipeList({ searchInput, cuisineSelected}) {
 	const [recipeOptions, setRecipeOptions] = useState([]);
 	const [page, setPage] = useState(0);
 	const [filteredRecipes, setFilteredRecipes] = useState([]);
@@ -44,6 +44,7 @@ export default function RecipeList({ searchInput, cuisineSelected }) {
 					return (
 						<RecipeCard
 							key={index}
+							id={recipe.id}
 							recipeName={recipe.title}
 							recipeCuisines={formatCuisines(recipe.cuisines)}
 							recipeImg={recipe.image}
